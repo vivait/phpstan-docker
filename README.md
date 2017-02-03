@@ -1,5 +1,9 @@
 # Docker image for PHPStan
 
+[![Docker Automated build](https://img.shields.io/docker/automated/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
+[![Docker Stars](https://img.shields.io/docker/stars/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
+
 ## Supported tags
 
 - `latest`
