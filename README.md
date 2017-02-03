@@ -5,10 +5,12 @@
 [![Docker Stars](https://img.shields.io/docker/stars/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 
+The image are based on [Alpine Linux](https://alpinelinux.org/) and built daily. 
+
 ## Supported tags
 
-- `latest`
-- `0.6`
+- `latest` [(latest/Dockerfile)](latest/Dockerfile)
+- `0.6` [(0.6/Dockerfile)](0.6/Dockerfile)
 
 ## How to use this image
 
