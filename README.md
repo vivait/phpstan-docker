@@ -34,7 +34,7 @@ We are recommend to use the images as an shell alias to access via short-command
 To use simply *phpstan* everywhere on CLI add this line to your ~/.zshrc, ~/.bashrc or ~/.profile.
 
 ```
-alias phpstan="docker run -v $PWD:/app --rm phpstan/phpstan"
+alias phpstan='docker run -v $PWD:/app --rm phpstan/phpstan'
 ```
 
 If you don't have set the alias, use this command to run the container: 
