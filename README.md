@@ -1,11 +1,11 @@
-# Docker image for PHPStan
+# Docker image for [PHPStan](https://github.com/phpstan/phpstan) - PHP Static Analysis Tool
 
 [![Build Status](https://travis-ci.org/phpstan/docker-image.svg?branch=master)](https://travis-ci.org/phpstan/docker-image)
 [![Docker Automated build](https://img.shields.io/docker/automated/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 [![Docker Stars](https://img.shields.io/docker/stars/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 
-The image are based on [Alpine Linux](https://alpinelinux.org/) and built daily. 
+The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily. 
 
 ## Supported tags
 
