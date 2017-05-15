@@ -1,20 +1,21 @@
-build: build-base build-0.6 build-latest
+VERSIONS := 0.6 0.7 latest
+BUILD_ALL_VERSIONS := $(addprefix build-, $(VERSIONS))
+TEST_ALL_VERSIONS := $(addprefix test-, $(VERSIONS))
 
-test: build test-0.6 test-latest
+all: test
 
+.PHONY: build build-base $(BUILD_ALL_VERSIONS)
 build-base:
 	docker build -t phpstan/phpstan:base base
 
-build-latest:
-	docker build -t phpstan/phpstan:latest latest
+$(BUILD_ALL_VERSIONS): build-%: build-base
+	docker build -t phpstan/phpstan:$* $*
 
-build-0.6:
-	docker build -t phpstan/phpstan:0.6 0.6
+build: $(BUILD_ALL_VERSIONS)
 
-test-0.6:
-	@echo "Test 0.6"
-	@docker run --rm phpstan/phpstan:0.6 list
+.PHONY: test $(TEST_ALL_VERSIONS)
+$(TEST_ALL_VERSIONS): test-%:
+	@echo "Test $*"
+	@docker run --rm phpstan/phpstan:$* list
 
-test-latest:
-	@echo "Test dev-master"
-	@docker run --rm phpstan/phpstan:latest list
+test: build $(TEST_ALL_VERSIONS)
