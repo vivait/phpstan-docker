@@ -12,6 +12,7 @@ The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily.
 - `latest` [(latest/Dockerfile)](latest/Dockerfile)
 - `0.6` [(0.6/Dockerfile)](0.6/Dockerfile)
 - `0.7` [(0.7/Dockerfile)](0.7/Dockerfile)
+- `phar` [(phar/Dockerfile)](phar/Dockerfile) - [experimental](https://github.com/phpstan/docker-image/issues/5) 
 
 ## How to use this image
 
