@@ -5,12 +5,13 @@
 [![Docker Stars](https://img.shields.io/docker/stars/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/phpstan/phpstan.svg)](https://hub.docker.com/r/phpstan/phpstan/)
 
-The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily. 
+The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily.
 
 ## Supported tags
 
 - `latest` [(latest/Dockerfile)](latest/Dockerfile)
 - `0.6` [(0.6/Dockerfile)](0.6/Dockerfile)
+- `0.7` [(0.7/Dockerfile)](0.7/Dockerfile)
 
 ## How to use this image
 
@@ -37,7 +38,7 @@ To use simply *phpstan* everywhere on CLI add this line to your ~/.zshrc, ~/.bas
 alias phpstan='docker run -v $PWD:/app --rm phpstan/phpstan'
 ```
 
-If you don't have set the alias, use this command to run the container: 
+If you don't have set the alias, use this command to run the container:
 
 ```
 docker run --rm -v /path/to/app:/app phpstan/phpstan [some arguments for PHPStan]
@@ -46,5 +47,5 @@ docker run --rm -v /path/to/app:/app phpstan/phpstan [some arguments for PHPStan
 For example:
 
 ```
-docker run --rm -v /path/to/app:/app phpstan/phpstan analyse /app/src 
+docker run --rm -v /path/to/app:/app phpstan/phpstan analyse /app/src
 ```
