@@ -2,7 +2,6 @@ FROM php:7.1-alpine
 MAINTAINER Tommy Muehle <tommy.muehle@gmail.com>
 
 RUN apk update --no-cache \
-    && apk add --no-cache tini \
     && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
 
 ENV COMPOSER_HOME /composer
@@ -22,4 +21,4 @@ ENV PATH /composer/vendor/bin:$PATH
 VOLUME ["/app"]
 WORKDIR /app
 
-ENTRYPOINT ["/sbin/tini", "--", "phpstan"]
+ENTRYPOINT ["phpstan"]
