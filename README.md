@@ -58,7 +58,7 @@ docker run --rm -v /path/to/app:/app phpstan/phpstan analyse /app/src
 Sometimes your codebase requires some additional PHP extensions like "intl"
 or maybe "soap". 
 
-Therefore you need to know that our Docker image extends the [official PHP 7.1 Docker image](https://github.com/docker-library/php/blob/76a1c5ca161f1ed6aafb2c2d26f83ec17360bc68/7.1/alpine/Dockerfile) 
+Therefore you need to know that our Docker image extends the [official alpine PHP 7.1 Docker image](https://github.com/docker-library/php/blob/76a1c5ca161f1ed6aafb2c2d26f83ec17360bc68/7.1/alpine/Dockerfile) 
 and so only a subset of configured extensions are available. Also because PHPStan needs no further extensions to run itself.
 
 But to solve this issue you can extend our Docker image in an own Dockerfile like this, for example to add "soap" and "intl":
