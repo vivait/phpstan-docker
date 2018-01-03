@@ -18,6 +18,7 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
     && curl -LOs https://github.com/phpstan/phpstan/releases/download/$PHPSTAN_VERSION/phpstan.phar \
     && chmod +x phpstan.phar \
     && mv phpstan.phar /usr/local/bin/phpstan \
+    && echo "memory_limit=-1" > /etc/php7/conf.d/99_memory-limit.ini \
     && apk del curl \
     && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
 
