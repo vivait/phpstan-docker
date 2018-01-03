@@ -13,6 +13,7 @@ The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily.
 - `0.6` [(0.6/Dockerfile)](0.6/Dockerfile)
 - `0.7` [(0.7/Dockerfile)](0.7/Dockerfile)
 - `0.8` [(0.8/Dockerfile)](0.8/Dockerfile)
+- `0.9` [(0.9/Dockerfile)](0.9/Dockerfile)
 - `phar` [(phar/Dockerfile)](phar/Dockerfile) - [experimental](https://github.com/phpstan/docker-image/issues/5)
 
 ## How to use this image
@@ -28,7 +29,7 @@ docker pull phpstan/phpstan
 Alternatively, pull a specific version:
 
 ```
-docker pull phpstan/phpstan:0.6
+docker pull phpstan/phpstan:0.9
 ```
 
 ### Usage
@@ -58,18 +59,18 @@ docker run --rm -v /path/to/app:/app phpstan/phpstan analyse /app/src
 Sometimes your codebase requires some additional PHP extensions like "intl"
 or maybe "soap". 
 
-Therefore you need to know that our Docker image extends the [official alpine PHP 7.1 Docker image](https://github.com/docker-library/php/blob/76a1c5ca161f1ed6aafb2c2d26f83ec17360bc68/7.1/alpine/Dockerfile) 
-and so only a subset of configured extensions are available. Also because PHPStan needs no further extensions to run itself.
+Therefore you need to know that our Docker image extends the [official alpine Docker image](https://github.com/gliderlabs/docker-alpine)
+So only a subset of extensions are pre-installed. Also because PHPStan needs no further extensions to run itself.
 
 But to solve this issue you can extend our Docker image in an own Dockerfile like this, for example to add "soap" and "intl":
 
 ```
 FROM phpstan/phpstan:latest
-RUN apk add --no-cache --virtual .persistent-deps icu-dev libxml2-dev \
-    && docker-php-ext-configure intl --enable-intl \
-    && docker-php-ext-configure soap --enable-soap \
-    && docker-php-ext-install intl \
-    && docker-php-ext-install soap
+RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community add \
+    icu-dev \
+    libxml2-dev \
+    php7-soap \
+    php7-intl
 ```
 
 #### Missing classes like "PHPUnit_Framework_TestCase"
