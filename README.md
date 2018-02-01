@@ -58,7 +58,7 @@ docker run --rm -v /path/to/app:/app phpstan/phpstan analyse /app/src
 #### Install PHPStan extensions
 If you need an PHPStan extension, for example [phpstan/phpstan-phpunit](https://github.com/phpstan/phpstan-phpunit), you can simply
 extend an existing image and add the relevant extension via Composer.
-In some cases you need also some additional PHP extensions like DOM.
+In some cases you need also some additional PHP extensions like DOM. (see section below)
 
 Here is an example Dockerfile for phpstan/phpstan-phpunit:
 
@@ -74,8 +74,9 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
 Sometimes your codebase requires some additional PHP extensions like "intl"
 or maybe "soap". 
 
-Therefore you need to know that our Docker image extends the [official alpine Docker image](https://github.com/gliderlabs/docker-alpine)
-So only a subset of extensions are pre-installed. Also because PHPStan needs no further extensions to run itself.
+Therefore you need to know that our Docker image extends the [official alpine Docker image](https://github.com/gliderlabs/docker-alpine).
+So only [a subset of extensions are pre-installed](https://github.com/phpstan/docker-image/blob/master/base/Dockerfile#L11-L32).
+Also because PHPStan needs no further extensions to run itself.
 
 But to solve this issue you can extend our Docker image in an own Dockerfile like this, for example to add "soap" and "intl":
 
