@@ -14,6 +14,7 @@ The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily.
 - `0.7` [(0.7/Dockerfile)](0.7/Dockerfile)
 - `0.8` [(0.8/Dockerfile)](0.8/Dockerfile)
 - `0.9` [(0.9/Dockerfile)](0.9/Dockerfile)
+- `0.10` [(0.10/Dockerfile)](0.10/Dockerfile)
 - `phar` [(phar/Dockerfile)](phar/Dockerfile) - [experimental](https://github.com/phpstan/docker-image/issues/5)
 
 ## How to use this image
@@ -29,7 +30,7 @@ docker pull phpstan/phpstan
 Alternatively, pull a specific version:
 
 ```
-docker pull phpstan/phpstan:0.9
+docker pull phpstan/phpstan:0.10
 ```
 
 ### Usage
