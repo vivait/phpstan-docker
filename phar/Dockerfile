@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ENV PHPSTAN_VERSION 0.9
+ENV PHPSTAN_VERSION 0.10
 
 RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community add \
     curl \
