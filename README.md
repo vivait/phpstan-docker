@@ -15,6 +15,7 @@ The image is based on [Alpine Linux](https://alpinelinux.org/) and built daily.
 - `0.8` [(0.8/Dockerfile)](0.8/Dockerfile)
 - `0.9` [(0.9/Dockerfile)](0.9/Dockerfile)
 - `0.10` [(0.10/Dockerfile)](0.10/Dockerfile)
+- `0.11` [(0.11/Dockerfile)](0.11/Dockerfile)
 - `phar` [(phar/Dockerfile)](phar/Dockerfile) - [experimental](https://github.com/phpstan/docker-image/issues/5)
 
 ## How to use this image

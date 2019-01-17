@@ -1,4 +1,4 @@
-VERSIONS := 0.6 0.7 0.8 0.9 0.10 phar latest
+VERSIONS := 0.6 0.7 0.8 0.9 0.10 0.11 phar latest
 BUILD_ALL_VERSIONS := $(addprefix build-, $(VERSIONS))
 TEST_ALL_VERSIONS := $(addprefix test-, $(VERSIONS))
 
