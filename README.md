@@ -72,6 +72,12 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
     && composer global require phpstan/phpstan-phpunit
 ```
 
+If installed globally, you can update the `phpstan.neon` or `phpstan.neon.dist` file in order to use the extension:
+```neon
+includes:
+    - /composer/vendor/phpstan/phpstan-phpunit/extension.neon
+```
+
 #### Further PHP extension support
 Sometimes your codebase requires some additional PHP extensions like "intl"
 or maybe "soap". 
