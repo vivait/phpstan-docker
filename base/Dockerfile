@@ -30,14 +30,10 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
     php7-xmlreader \
     php7-xmlwriter \
     php7-zlib \
-    && curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
-    && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
-    && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { echo 'Invalid installer' . PHP_EOL; exit(1); }" \
-    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer \
-    && php -r "unlink('/tmp/composer-setup.php');" \
-    && php -r "unlink('/tmp/composer-setup.sig');" \
     && echo "memory_limit=-1" > /etc/php7/conf.d/99_memory-limit.ini \
     && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
+
+COPY --from=composer:1.8.0 /usr/bin/composer /usr/local/bin/composer
 
 VOLUME ["/app"]
 WORKDIR /app
