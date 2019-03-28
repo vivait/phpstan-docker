@@ -31,7 +31,7 @@ docker pull phpstan/phpstan
 Alternatively, pull a specific version:
 
 ```
-docker pull phpstan/phpstan:0.10
+docker pull phpstan/phpstan:0.11
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ In some cases you need also some additional PHP extensions like DOM. (see sectio
 Here is an example Dockerfile for phpstan/phpstan-phpunit:
 
 ```
-FROM phpstan/phpstan:0.9
+FROM phpstan/phpstan:0.11
 RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/community add \
     php7-dom \
     php7-xmlwriter \
