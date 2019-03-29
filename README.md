@@ -75,7 +75,7 @@ includes:
 
 #### Further PHP extension support
 Sometimes your codebase requires some additional PHP extensions like "intl"
-or maybe "soap". 
+or maybe "soap".
 
 Therefore you need to know that our Docker image extends the [official alpine Docker image](https://github.com/gliderlabs/docker-alpine).
 So only [a subset of extensions are pre-installed](https://github.com/phpstan/docker-image/blob/master/base/Dockerfile#L11-L32).
@@ -94,7 +94,7 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
 
 #### Missing classes like "PHPUnit_Framework_TestCase"
 
-Often you use PHAR files like PHPUnit in your projects. These PHAR files provide sometimes own classes 
+Often you use PHAR files like PHPUnit in your projects. These PHAR files provide sometimes own classes
 where your project classes extends from. But these cannot be found in
 the vendor directory and so cannot be autoloaded. So you see error messages like this:
 *"Fatal error: Class 'PHPUnit_Framework_TestCase' not found"*
