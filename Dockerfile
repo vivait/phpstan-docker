@@ -1,12 +1,14 @@
-FROM alpine:3.8
-MAINTAINER Tommy Muehle <tommy.muehle@gmail.com>
+FROM alpine:3.9
+MAINTAINER Ondrej Mirtes <ondrej@mirtes.cz>
 
 ENV COMPOSER_HOME /composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV PATH /composer/vendor/bin:$PATH
-ENV PHPSTAN_VERSION 0.11.x
+ARG PHPSTAN_VERSION
 
-RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.8/community add \
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN apk --update --no-cache add \
     php7 \
     php7-ctype \
     php7-curl \
@@ -31,12 +33,8 @@ RUN apk --update --progress --no-cache --repository http://dl-cdn.alpinelinux.or
     php7-xmlwriter \
     php7-zlib \
     && echo "memory_limit=-1" > /etc/php7/conf.d/99_memory-limit.ini \
-    && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
-
-COPY --from=composer:1.8.0 /usr/bin/composer /usr/local/bin/composer
-
-RUN composer global require phpstan/phpstan ^0.11 \
-    && composer global show | grep phpstan
+    && rm -rf /var/cache/apk/* /var/tmp/* /tmp/* \
+    && composer global require phpstan/phpstan-shim "$PHPSTAN_VERSION"
 
 VOLUME ["/app"]
 WORKDIR /app
