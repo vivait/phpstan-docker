@@ -4,7 +4,6 @@ MAINTAINER Ondrej Mirtes <ondrej@mirtes.cz>
 ENV COMPOSER_HOME /composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV PATH /composer/vendor/bin:$PATH
-ARG PHPSTAN_VERSION
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -33,8 +32,11 @@ RUN apk --update --no-cache add \
     php7-xmlwriter \
     php7-zlib \
     && echo "memory_limit=-1" > /etc/php7/conf.d/99_memory-limit.ini \
-    && rm -rf /var/cache/apk/* /var/tmp/* /tmp/* \
-    && composer global require phpstan/phpstan-shim "$PHPSTAN_VERSION"
+    && rm -rf /var/cache/apk/* /var/tmp/* /tmp/*
+
+ARG PHPSTAN_VERSION
+
+RUN composer global require phpstan/phpstan-shim "$PHPSTAN_VERSION"
 
 VOLUME ["/app"]
 WORKDIR /app
